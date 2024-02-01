@@ -75,29 +75,34 @@ The overall arching goal of this project is to understand how to build and confi
   IP Address Table
 </h3>
 
-<table>
+<table align="center">
   <tr>
     <th>Devices</th>
     <th>IP Address</th>
   </tr>
   <tr>
+    <td>Default Gateway</td>
+    <td>172.30.212.1</td>
+  </tr>
+  <tr>
     <td>Raspberry Pi 1 (masterbibble)</td>
+    <td>172.30.212.201</td>
   </tr>
   <tr>
     <td>Rasberry Pi 2 (workerken)</td>
-    <td>Content in the second column</td>
+    <td>172.30.212.202</td>
   </tr>
-    <tr>
+  <tr>
     <td>Rasberry Pi 3 (workerallen)</td>
-    <td>Content in the second column</td>
+    <td>172.30.212.203/td>
   </tr>
-    <tr>
+  <tr>
     <td>NUC 1 (Barbie)</td>
-    <td>Content in the second column</td>
+    <td>172.30.212.200</td>
   </tr>
-    </tr>
+  </tr>
     <tr>
     <td>NUC 2 (Preminger)</td>
-    <td>Content in the second column</td>
+    <td>TBD</td>
   </tr>
 </table>
