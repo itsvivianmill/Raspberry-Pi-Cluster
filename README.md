@@ -2,9 +2,11 @@
 <h1 align="center">
   Raspberry-Pi-Cluster
 </h1>
-  <p align="center"> 
-    by Quan Do, Vivian Miller, and Lilian Miller [QVL] 
-  </p>
+
+<p align="center"> 
+  by Quan Do, Vivian Miller, and Lilian Miller [QVL] 
+</p>
+
 <h2>
   Preface: 
 </h2>
@@ -15,4 +17,57 @@ The overall arching goal of this project is to understand how to build and confi
 <h3>
   Primary Materials:
 </h3>
+
+- Raspberry Pi 400 Series (3)
+- NUCs (2)
+- Cisco Switches (2)
+- Cisco Router
+- ASA 5506 Series Cisco Firewall
+
+<h3>
+  References:
+</h3>
+
+*During the planning process of how we wanted to go about this, we went through different versions. We set up different diagrams and project plans to consider. The important part was that we had a goal and a way to measure our success. The materials remained the same, it just depended on how we wanted to utilize it.*
+
+<h2>
+  Project Plans: 
+</h2>
+
+<h3>
+  Version 1:
+</h3>
+
+<h4>
+  Project Goal:
+</h4>
+
+1. Set up a networked Raspberry Pi Cluster that load balances and distributes computing resources
+2. Set up basic network security measures like setting up a firewall, enabling port forwarding, and implementing MAC address filtering
+
+<h3>
+  Version 2:
+</h3>
+
+<h4>
+  Project Goal:
+</h4>
+
+1. Simulate a botnet attack by utilizing a Raspberry Pi Cluster to target a client or server
+2. Set up basic network security measures like setting up a firewall, enabling port forwarding, and implementing MAC address filtering
+3. Demonstrate the importance of security measures when the network is unprotected vs. protected
+4. Present the ideas using Wireshark to capture the flow of data 
+
+<h3>
+  Version 3:
+</h3>
+
+<h4>
+  Project Goal:
+</h4>
+
+1. Simulate a botnet attack by utilizing a (Next Unit of Computing) NUC to target a client or server
+2. Set up basic network security measures like setting up a firewall, enabling port forwarding, and implementing MAC address filtering
+3. Demonstrate the importance of security measures when the network is unprotected vs. protected
+4. Present the ideas using Wireshark to capture the flow of data 
 
