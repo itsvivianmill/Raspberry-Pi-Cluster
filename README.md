@@ -82,13 +82,22 @@ The overall arching goal of this project is to understand how to build and confi
   </tr>
   <tr>
     <td>Raspberry Pi 1 (masterbibble)</td>
-    <td>Rasberry Pi 2 (workerken)</td>
-    <td>Rasberry Pi 3 (workerallen)</td>
-    <td>NUC 1 (Barbie)</td>
-    <td>NUC 2 (Preminger)</td>
   </tr>
   <tr>
-    <td>Content in the first column</td>
+    <td>Rasberry Pi 2 (workerken)</td>
+    <td>Content in the second column</td>
+  </tr>
+    <tr>
+    <td>Rasberry Pi 3 (workerallen)</td>
+    <td>Content in the second column</td>
+  </tr>
+    <tr>
+    <td>NUC 1 (Barbie)</td>
+    <td>Content in the second column</td>
+  </tr>
+    </tr>
+    <tr>
+    <td>NUC 2 (Preminger)</td>
     <td>Content in the second column</td>
   </tr>
 </table>
