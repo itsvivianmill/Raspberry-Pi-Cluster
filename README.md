@@ -94,7 +94,7 @@ The overall arching goal of this project is to understand how to build and confi
   </tr>
   <tr>
     <td>Rasberry Pi 3 (workerallen)</td>
-    <td>172.30.212.203/td>
+    <td>172.30.212.203</td>
   </tr>
   <tr>
     <td>NUC 1 (Barbie)</td>
