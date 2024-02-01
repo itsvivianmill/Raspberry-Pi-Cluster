@@ -71,3 +71,24 @@ The overall arching goal of this project is to understand how to build and confi
 3. Demonstrate the importance of security measures when the network is unprotected vs. protected
 4. Present the ideas using Wireshark to capture the flow of data 
 
+<h3>
+  IP Address Table
+</h3>
+
+<table>
+  <tr>
+    <th>Devices</th>
+    <th>IP Address</th>
+  </tr>
+  <tr>
+    <td>Raspberry Pi 1 (masterbibble)</td>
+    <td>Rasberry Pi 2 (workerken)</td>
+    <td>Rasberry Pi 3 (workerallen)</td>
+    <td>NUC 1 (Barbie)</td>
+    <td>NUC 2 (Preminger)</td>
+  </tr>
+  <tr>
+    <td>Content in the first column</td>
+    <td>Content in the second column</td>
+  </tr>
+</table>
