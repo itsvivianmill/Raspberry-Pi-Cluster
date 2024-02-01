@@ -38,6 +38,8 @@ The overall arching goal of this project is to understand how to build and confi
   Version 1:
 </h3>
 
+![Screenshot 2024-02-01 100806](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/b4538444-e00c-4c0b-8405-4e0a736e9f54)
+
 <h4>
   Project Goal:
 </h4>
@@ -48,6 +50,8 @@ The overall arching goal of this project is to understand how to build and confi
 <h3>
   Version 2:
 </h3>
+
+![Screenshot 2024-02-01 101102](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/baa9ac39-82ee-4f43-8c90-15975163366c)
 
 <h4>
   Project Goal:
@@ -61,6 +65,8 @@ The overall arching goal of this project is to understand how to build and confi
 <h3>
   Version 3:
 </h3>
+
+![Screenshot 2024-02-01 101122](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/3326b414-a99b-4091-a7f6-af914826447e)
 
 <h4>
   Project Goal:
