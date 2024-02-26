@@ -91,7 +91,7 @@ The overall arching goal of this project is to understand how to build and confi
     <td>172.30.212.1</td>
   </tr>
   <tr>
-    <td>Raspberry Pi 1 (masterbibble)</td>
+    <td>Raspberry Pi 1 (masterbibble) </td>
     <td>172.30.212.201</td>
   </tr>
   <tr>
@@ -112,3 +112,10 @@ The overall arching goal of this project is to understand how to build and confi
     <td>TBD</td>
   </tr>
 </table>
+
+<h2>1.0 Raspberry Pi 400 Cluster</h2>
+<h4>References</h4>
+
+Building Cluster
+
+Connect the Raspberry Pi 400 keyboards with the ethernet cables into the switch. Power each respectively.  We used the references as ideas and not as a definite recipe to follow. A lot of the links were used as a starting point to get to what we have now.  
