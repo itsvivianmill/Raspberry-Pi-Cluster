@@ -153,14 +153,11 @@ To be able to connect to the Pi, we turned off the WiFi and configured the Ether
 
 <h3>1.2: Raspberry Pi Imaging</h3>
 We put the micro SSD back into the Raspberry Pi and connected it to a laptop with an Ethernet cable. Using the command prompt, we SSHed into the Pi using the IP address we configured and it worked! However, we did hit an obstacle that occurred— we were unable to use the command iptables, so it will be investigated soon (solution is in iptables section). 
-<br>
-<br>
-<p align="center">The image below shows masterbibble successfully ssh:</p>
 
+<p align="center">The image below shows masterbibble successfully ssh:</p>
 
 We used the Raspberry Pi Imager v1.8.4 to create an image for the two worker Pis. The username of each Pi is workerken whose IP address is 10.0.0.11 and workerallen whose IP address is 10.0.0.12. 
 
-<br>
 <p align="center">Image below shows the Raspberry Pi Imager v1.8.4 and the customization settings for workerken and workerallen:</p>
 
 <p align="center">The images below shows workerken and workerallen successfully ssh:</p>
@@ -174,7 +171,6 @@ So the thing we decided to do was to use leftover IP addresses that were assigne
 
 To find the network address of the classroom, we connected an ethernet cable to a laptop, disabled the wireless connectivity, and enabled DHCP.  We went into the command prompt and used ipconfig to look at the IP address that was assigned. The private network address was 172.30.212.0/24 and so we went back into the network adapter setting to statically change it to 172.30.212.200/24. We chose an IP host address that would least likely be occupied by any device on the network. 
 
-<br>
 <p align="center">The image below shows the IP address of the laptop after it was configured to be 172.30.212.200/24:</p>
 
 <h3>1.4: Setting up iptables</h3>
@@ -190,7 +186,6 @@ We continued on and installed iptables, updated, and upgraded it using the follo
 <br>
 **3. sudo apt upgrade**
 
-<br>
 <p align="center">Image below shows masterbibble installing iptables:</p>
 
 <p align="center">Image below shows workerken being ssh and successfully ping 1.1.1.1:</p>
@@ -218,7 +213,6 @@ To configure the master to use kubernetes, we used the following commands:
 <br>
 **3. cat /var/lib/rancher/k3s/server/node-token**
 
-<br>
 <p align="center">Image below shows masterbibble downloading kubernetes:</p>
 
 <p align="center">Image below shows masterbibble gettings the nodes:</p>
@@ -236,7 +230,6 @@ We went back into the worker Pis and started to install and configure kubernetes
 However, there was an error that appeared when inputting the command into the CLI, we got an [ERROR] Only https:// URLs are supported for K3S_URL (have “https://172.30.212.201:6443”). 
 *Update: It was a semantic error lol. It was the wrong symbol that was copied and pasted. Using a unicode encoder, we can see that although the quotations look similar, they are completely different. The unicodes were not the same :(*
 
-<br>
 <p align="center">Image below shows the ERROR:</p>
 
 <p align="center">Image below shows the command working correctly:</p>
@@ -245,15 +238,21 @@ We proceeded and waited for the agent to load. Going back to the master, we chec
 <br>
 **1. kubectl get nodes**
 
-<br>
 <p align="center">Image below shows the successful connection of workerallen:</p>
 
 The same thing was done on workerken and it was successful. 
 
-<br>
 <p align="center">Image below shows the successful connection of workerken:</p>
 
 <h3>1.6: Physical Installment</h3>
 Finally, it was time to connect everything together and have access to all of the Raspberry Pis at the same time. 
 We connected the Raspberry Pi 400 keyboards with the ethernet cables into the switch, powering each respectively. The Pis were placed on top of each other, going from masterbibble down to workerallen while trying to maintain somewhat of a good cable management (spoiler alert we don't) by zip tying the ethernet cables. It looks a bit messy, but we worked with the space and materials we had. 
 
+<p align="center">Image below shows us zip tying the ethernet cable:</p>
+
+<p align="center">Image below shows the final result of the cluster:</p>
+
+<h3>1.7: PuTTy on Windows 11 and Ubuntu 22</h3>
+Instead of going to the command line everytime we needed to access the cluster, we downloaded PuTTy and created saved sessions to make it easier on us. 
+
+<p align="center">Image below shows the saved session in PuTTy:</p>
