@@ -109,7 +109,7 @@ The overall arching goal of this project is to understand how to build and confi
   </tr>
     <tr>
     <td>NUC 2 (Preminger)</td>
-    <td>TBD</td>
+    <td>11.0.0.1</td>
   </tr>
 </table>
 
@@ -233,4 +233,27 @@ We went back into the worker Pis and started to install and configure kubernetes
 
 **2. curl -sfL https://get.k3s.io | K3S_TOKEN="K10578b5c034ffd32e45f0bd5eff4db97249a4abd718c6df93a50beb39be2b162f6::server:ada46499a2b62c634fd4ee538144e3ff" K3S_URL="https://172.30.212.201:6443" K3S_NODE_NAME="workallen" sh -**
 
+However, there was an error that appeared when inputting the command into the CLI, we got an [ERROR] Only https:// URLs are supported for K3S_URL (have “https://172.30.212.201:6443”). 
+*Update: It was a semantic error lol. It was the wrong symbol that was copied and pasted. Using a unicode encoder, we can see that although the quotations look similar, they are completely different. The unicodes were not the same :(*
+
+<br>
+<p align="center">Image below shows the ERROR:</p>
+
+<p align="center">Image below shows the command working correctly:</p>
+
+We proceeded and waited for the agent to load. Going back to the master, we checked if everything worked correctly by using the following command:
+<br>
+**1. kubectl get nodes**
+
+<br>
+<p align="center">Image below shows the successful connection of workerallen:</p>
+
+The same thing was done on workerken and it was successful. 
+
+<br>
+<p align="center">Image below shows the successful connection of workerken:</p>
+
+<h3>1.6: Physical Installment</h3>
+Finally, it was time to connect everything together and have access to all of the Raspberry Pis at the same time. 
+We connected the Raspberry Pi 400 keyboards with the ethernet cables into the switch, powering each respectively. The Pis were placed on top of each other, going from masterbibble down to workerallen while trying to maintain somewhat of a good cable management (spoiler alert we don't) by zip tying the ethernet cables. It looks a bit messy, but we worked with the space and materials we had. 
 
