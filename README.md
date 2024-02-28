@@ -250,9 +250,82 @@ We connected the Raspberry Pi 400 keyboards with the ethernet cables into the sw
 
 <p align="center">Image below shows us zip tying the ethernet cable:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/e61baaa0-6d05-4f8a-8711-cbec93f0bf53)
+
 <p align="center">Image below shows the final result of the cluster:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/7a52c04d-60b8-48a1-a5ce-ec62b60ec412)
+
 <h3>1.7: PuTTy on Windows 11 and Ubuntu 22</h3>
-Instead of going to the command line everytime we needed to access the cluster, we downloaded PuTTy and created saved sessions to make it easier on us. 
+Instead of going to the command line every time we needed to access the cluster, we downloaded PuTTy and created saved sessions to make it easier for us. 
 
 <p align="center">Image below shows the saved session in PuTTy:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/1db12eb2-34fe-4576-bfd6-7d0a979279ef)
+
+<h3>1.8: Instaling Rancher on Ubuntu 22</h3>
+Referencing the NUC section, we installed Ubuntu 22 to work with Rancher. We tried to install Rancher using the following commands:
+
+**1. mkdir /etc/rancher**
+<br>
+**2. mkdir /etc/rancher/rke2**
+<br>
+**3. cd /etc/rancher/rke2**
+<br>
+**4. nano config.yaml**
+- **a. token: rancherMon**
+- **b.tls-san:**
+  - **i. - 172.30.212.200**
+
+**5. curl -sfL https://get.rancher.io | sh**
+<br>
+**6. systemctl enable rancherd-server.service**
+<br>
+**7. systemctl start rancherd-server.service**
+<br>
+**8. journalctl -eu rancherd-server -f**
+
+<p align="center">Image below shows the text in the nano file:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/91521090-9899-4551-9dd9-c6cbe01b3b53)
+
+Rancher had synced successfully after all of the commands and we reset the admin password using the following command:
+<br>
+**1. rancherd reset-admin**
+
+We logged in and added our cluster using the Add Cluster button and clicking on Other Cluster. The cluster name we used was mattel. When we clicked create, there were three different commands to import the cluster, so we chose the last one. We used the following command:
+<br>
+**1. curl --insecure -sfL https://172.30.212.200:8443/v3/import/6pprbdwzkgz8l9bl72wlfdl766r9l9ztwr72qmgmfbkx4xq5bttrxq_c-tjkvs.yaml | kubectl apply -f -**
+
+<p align="center">Image below shows the page that gave the last command:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/21464daa-ab04-4e43-a5c7-c8598721a7f8)
+
+<p align="center">Image below shows the cluster mattel having a Pending State:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/d42f592b-6a1d-41db-bfc6-a0d4cb3e8de1)
+
+<p align="center">Image below shows the command used to connect the cluster to Rancher:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/ed02734c-a08c-4033-8a73-02eb789e314a)
+
+*A problem that we encountered was that we couldn't get Rancher to recognize any of the clusters. We were unable to get it to an Active State even after getting an HTTP Response. To try and resolve this issue, we changed the version to what NetworkChuck was using which was v2.5.8 to hopefully get a better outcome. Unfortunately, we were unable to figure out a solution so we moved on to the next part. We hypothesized that the version of our k3s does not support Rancher yet.*
+
+<p align="center">Image below shows the versions of k3s supporting Rancher:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/d98b2d38-7ce8-4978-80c0-32020c2a8f6f)
+
+After looking into the comment section, we saw one that said we could use a docker container instead. So we decided that after the other configurations, we would go back and check it out later. 
+
+<p align="center">Image below shows the comment about Rancher:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/e92c6478-08e4-4034-844e-fb5efcfc1194)
+
+<h3>1.9: DEPLOYMENT</h3>
+We shifted our focus to trying to deploy an application. The first thing we did was create a YAML file called barbieweb.yaml to insert the code that is referenced below.  
+
+Yaml file: https://gist.github.com/petitviolet/d36f33d145d0bbf4b54eb187b79d0244 
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/64173688-bd7a-4db0-8e73-4b27e2f8267a)
+
+
