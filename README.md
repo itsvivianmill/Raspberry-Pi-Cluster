@@ -258,6 +258,8 @@ We went back into the worker Pis and started to install and configure kubernetes
 However, there was an error that appeared when inputting the command into the CLI, we got an [ERROR] Only https:// URLs are supported for K3S_URL (have “https://172.30.212.201:6443”). 
 *Update: It was a semantic error lol. It was the wrong symbol that was copied and pasted. Using a unicode encoder, we can see that although the quotations look similar, they are completely different. The unicodes were not the same :(*
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/5f936e0e-7a6f-4210-89e3-6d4b06bf8ffe)
+
 <p align="center">Image below shows the ERROR:</p>
 
 ![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/109fa605-51ec-4e53-bcc2-97b2c9a3c001)
@@ -341,6 +343,10 @@ We logged in and added our cluster using the Add Cluster button and clicking on 
 
 ![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/d42f592b-6a1d-41db-bfc6-a0d4cb3e8de1)
 
+To make the cluster become an Active state, we edited in View API  and input a command in agentImageOverride by using the following command:
+<br>
+**1. rancher/rancher-agent:v2.5.17-linux-arm64**
+
 <p align="center">Image below shows the command used to connect the cluster to Rancher:</p>
 
 ![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/ed02734c-a08c-4033-8a73-02eb789e314a)
@@ -364,4 +370,75 @@ Yaml file: https://gist.github.com/petitviolet/d36f33d145d0bbf4b54eb187b79d0244
 
 ![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/64173688-bd7a-4db0-8e73-4b27e2f8267a)
 
+The code is a configuration which uses nginx to start a web server. It's very similar to apache but better. The code that was changed by adding/changing to the file was the following:
+<br>
+**1. apiVersion: apps/v1**
+<br>
+**2. ImagePullPolicy: Always**
+<br>
+**3. httpGET:**
+
+- **a. port: web**
+- **b. path**
+
+**4. name: web**
+<br>
+**5. protocol: TCP**
+
+*We weren't given all the correct commands with the video that was being referenced, so we had to mess around with some of the lines of code, but we got an error for deployment. The problem was hypothesized to be a version problem once again.*
+
+We found a new resource which gave us a new yaml file and tried to give it a go, we made a new file called barbieweb3.yaml.
+
+New yaml file: https://github.com/collabnix/kubelabs/blob/master/pods101/pods01.yaml 
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/02404cb4-4ace-4871-ac7a-18b4b71be505)
+
+Alas, that did not work and so we kept searching for a solution. A new yaml file was created to test called barbieweb4.yaml. Then, we finally found one that worked when we used the following command and yaml code:
+<br>
+**1. kubectl apply -f barbieweb4.yaml**
+
+Final yaml file: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ 
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/8d7126bb-9cb7-40d2-bfda-4ef12c270792)
+
+<p align="center">Image below shows kubectl get pods working successfully:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/9a0a6590-ee9d-4499-88c9-a56169e57ad2)
+
+The next step was to create another yaml file that contained the node port information. The file was called the following:
+<br>
+**1. barbienodeport.yaml**
+
+<p align="center">Image below shows the nano file containing the following lines:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/632491b5-8f50-486c-9c60-e2fca853aeb5)
+
+The code worked successfully and was able to deploy. We went on a web browser and tested whether or not we could access the web browser. 
+
+<p align="center">Image below shows the command kubectl get services working successfully:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/e6a37669-1647-4430-90b3-a25cc3048f13)
+
+Unfortunately, when we tried accessing the nginx server it was unable to connect when we used the following url:
+<br>
+**1. http://172.30.212.201:3111**
+
+To try and troubleshoot the issue, we changed the yaml file and added a few things. Compare the original code to the image provided to see the differences. We assume that the main reason it worked was because we added the httpGet line.
+
+<p align="center">Image below shows the updated file for barbieweb4.yaml:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/3e2fe2fc-3740-412e-bb1c-1f27954915a2)
+
+Everything seemed to be working and we were finally able to access the nginx server. The other IP addresses that the other clusters used could also successfully connect to the server. 
+
+<p align="center">Image below shows the nodes running:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/d7eb130e-d770-442d-9a61-583dda742a4d)
+
+<p align="center">Image below shows the browser being accessible:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/e9fd4a21-5cca-4bed-bd2f-904edc0d0ced)
+
+<h3>1.10: Editing the Server</h3>
+TBD
 
