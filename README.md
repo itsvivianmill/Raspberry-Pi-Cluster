@@ -232,7 +232,11 @@ However, there was an error that appeared when inputting the command into the CL
 
 <p align="center">Image below shows the ERROR:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/109fa605-51ec-4e53-bcc2-97b2c9a3c001)
+
 <p align="center">Image below shows the command working correctly:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/467c153f-c434-4109-a0ea-dc89196b6adc)
 
 We proceeded and waited for the agent to load. Going back to the master, we checked if everything worked correctly by using the following command:
 <br>
@@ -240,9 +244,13 @@ We proceeded and waited for the agent to load. Going back to the master, we chec
 
 <p align="center">Image below shows the successful connection of workerallen:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/44441ac5-4181-4dc9-9808-4dd4d2b4a9f5)
+
 The same thing was done on workerken and it was successful. 
 
 <p align="center">Image below shows the successful connection of workerken:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/73d21409-09a5-4fc3-8454-276bf91cc8f5)
 
 <h3>1.6: Physical Installment</h3>
 Finally, it was time to connect everything together and have access to all of the Raspberry Pis at the same time. 
