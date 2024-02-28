@@ -37,7 +37,8 @@ The overall arching goal of this project is to understand how to build and confi
 <h3>
   Version 1:
 </h3>
-
+<br>
+  
 ![Screenshot 2024-02-01 100806](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/b4538444-e00c-4c0b-8405-4e0a736e9f54)
 
 <h4>
@@ -219,9 +220,10 @@ The next step was to use the following commands and configure the Raspberry Pi. 
 **3. sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy**
 <br>
 **4. sudo reboot**
-
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/08fe923f-2739-41e7-a3f0-1f890e203cf6)
 
 In the video, we weren’t sure what commands he used because they were copied and pasted, but luckily we found the set of commands to use in the comment section!
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/bc7f47cf-d09a-4c5d-9612-626868f1576f)
 
 <h3>1.5: Setting up kubernetes</h3>
 
@@ -235,9 +237,15 @@ To configure the master to use kubernetes, we used the following commands:
 
 <p align="center">Image below shows masterbibble downloading kubernetes:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/cbc7cc99-292e-405b-933a-99b12f1b37e5)
+
 <p align="center">Image below shows masterbibble gettings the nodes:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/2f737aa1-5969-4e38-ba15-e397b9d7c868)
+
 <p align="center">Image below shows masterbibble obtaining the node token:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/65876f8d-a7f5-41a6-8241-ebecc478ebfb)
 
 We went back into the worker Pis and started to install and configure kubernetes onto them (ssh using the NUC ). We input our unique token into the “YOURTOKEN” spot, changed the [your server] with the master IP address, and changed “servername” with workerallen. We used the following command:
 <br>
