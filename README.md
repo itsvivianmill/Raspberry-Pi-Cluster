@@ -151,16 +151,30 @@ In Powershell, we created an ssh folder in the drive so we could access it using
 
 To be able to connect to the Pi, we turned off the WiFi and configured the Ethernet port to an IP address (10.0.0.2) within the network we configured. 
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/436d03de-ace6-4d7a-99e5-b268f0241a32)
+
 <h3>1.2: Raspberry Pi Imaging</h3>
 We put the micro SSD back into the Raspberry Pi and connected it to a laptop with an Ethernet cable. Using the command prompt, we SSHed into the Pi using the IP address we configured and it worked! However, we did hit an obstacle that occurred— we were unable to use the command iptables, so it will be investigated soon (solution is in iptables section). 
 
 <p align="center">The image below shows masterbibble successfully ssh:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/b7960447-188a-4a24-8b7a-652e304bc1b8)
+
 We used the Raspberry Pi Imager v1.8.4 to create an image for the two worker Pis. The username of each Pi is workerken whose IP address is 10.0.0.11 and workerallen whose IP address is 10.0.0.12. 
 
 <p align="center">Image below shows the Raspberry Pi Imager v1.8.4 and the customization settings for workerken and workerallen:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/82d8e6f6-ed11-4eb8-b75f-d330e9ca75ad)
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/2f856464-f588-4967-be83-ca2913b71583)
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/0150d5b6-56ff-484a-9a82-c02d298d71c5)
+
 <p align="center">The images below shows workerken and workerallen successfully ssh:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/77bc2d96-fa3d-4c7a-ae92-d9f473681953)
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/3872da03-c4a1-4d74-bed8-8c269ff7076b)
 
 <h3>1.3: iptables issue</h3>
 We found out that iptables was not installed, the problem was we weren’t connected to WiFi to be able to download any of the packages because everything had been localized. To solve this problem, we reinstalled the OS for masterbibble to enable wireless LAN connectivity. Another thing we changed was that masterbibble was now a 64-bit OS. 
@@ -172,6 +186,8 @@ So the thing we decided to do was to use leftover IP addresses that were assigne
 To find the network address of the classroom, we connected an ethernet cable to a laptop, disabled the wireless connectivity, and enabled DHCP.  We went into the command prompt and used ipconfig to look at the IP address that was assigned. The private network address was 172.30.212.0/24 and so we went back into the network adapter setting to statically change it to 172.30.212.200/24. We chose an IP host address that would least likely be occupied by any device on the network. 
 
 <p align="center">The image below shows the IP address of the laptop after it was configured to be 172.30.212.200/24:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/ad0e93c5-0219-4d76-9a77-9ddb0efe4ccf)
 
 <h3>1.4: Setting up iptables</h3>
 With that knowledge, we went back into all three Pis and statically changed their IP addresses to fit with the network of the classroom. We changed masterbibble to 172.30.212.201/24, workerken to 172.30.212.202/24, and workerallen to 172.30.212.203/24
@@ -188,7 +204,11 @@ We continued on and installed iptables, updated, and upgraded it using the follo
 
 <p align="center">Image below shows masterbibble installing iptables:</p>
 
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/4fc91996-1341-4e32-9832-6845096ef75f)
+
 <p align="center">Image below shows workerken being ssh and successfully ping 1.1.1.1:</p>
+
+![image](https://github.com/itsvivianmill/Raspberry-Pi-Cluster/assets/116047994/84f09bc4-7a22-4480-9640-2b6de9b6db34)
 
 The next step was to use the following commands and configure the Raspberry Pi. We used the following commands:
 <br>
