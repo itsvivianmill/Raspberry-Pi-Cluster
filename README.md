@@ -20,8 +20,7 @@ The overall arching goal of this project is to understand how to build and confi
 
 - Raspberry Pi 400 Series (3)
 - NUCs (2)
-- Cisco Switches (2)
-- Cisco Router
+- Switch
 - ASA 5506 Series Cisco Firewall
 
 <h3>
