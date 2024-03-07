@@ -1,6 +1,6 @@
 # 
 <h1 align="center">
-  Raspberry Pi Cluster
+  Network Security Project: Raspberry Pi Cluster
 </h1>
 
 <p align="center"> 
